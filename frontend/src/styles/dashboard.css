@@ -2048,6 +2048,51 @@
   gap: 24px;
 }
 
+/* ── Plotly Charts Grid ─────────────────────────────────────────────────── */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.chart-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px 12px;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.chart-card .js-plotly-plot {
+  width: 100% !important;
+}
+
+/* ── Peer Comparison Chart (Dossier) ────────────────────────────────────── */
+.peer-chart-container {
+  margin: 16px 0 8px;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 8px;
+  overflow: hidden;
+}
+.peer-chart-container .js-plotly-plot {
+  width: 100% !important;
+}
+
+@media (max-width: 1100px) {
+  .charts-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 700px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .methodology-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);

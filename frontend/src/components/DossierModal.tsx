@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import type { DossierResponse, ProjectSummary } from '../types/project';
 import { fetchProjectDossier } from '../services/api';
+import { PeerComparisonChart } from './PeerChart';
 
 interface DossierModalProps {
   projectId: string | null;
@@ -206,6 +207,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({
                   <p className="doc-section-note">
                     Compared against peer projects in the same state and sector cohort to isolate systemic outliers.
                   </p>
+                  <PeerComparisonChart peers={dossier.peer_comparisons} />
                   <table className="peer-table">
                     <thead>
                       <tr>

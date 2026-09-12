@@ -6,6 +6,7 @@ import {
   Cpu,
   ArrowRight,
 } from 'lucide-react';
+import { RiskDistributionChart, StateRiskChart, WorkTypeChart } from './RiskCharts';
 
 interface AnalyticsViewProps {
   overview: OverviewStats | null;
@@ -80,6 +81,19 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
               Contextual peer cohort evaluation using Interquartile Range (IQR) statistics across identical work categories and state conditions.
             </p>
           </div>
+        </div>
+      </div>
+
+      {/* Interactive Plotly Charts Grid */}
+      <div className="charts-grid" aria-label="Interactive Risk Analytics Charts">
+        <div className="chart-card">
+          <RiskDistributionChart overview={overview} />
+        </div>
+        <div className="chart-card">
+          <StateRiskChart overview={overview} />
+        </div>
+        <div className="chart-card">
+          <WorkTypeChart overview={overview} />
         </div>
       </div>
 
