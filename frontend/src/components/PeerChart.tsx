@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import Plot from 'react-plotly.js';
+import type {Data} from 'plotly.js';
 import type { PeerComparison } from '../types/project';
 
 interface PeerChartProps {
@@ -22,7 +23,7 @@ export const PeerComparisonChart: React.FC<PeerChartProps> = ({ peers }) => {
   const metrics = useMemo(() => peers.map((p) => METRIC_LABELS[p.metric] || p.metric), [peers]);
 
   const data = useMemo(() => {
-    const traces: Plotly.Data[] = [];
+    const traces: Data[] = [];
 
     // IQR range box (Q1 to Q3) — draw as a filled area
     traces.push({
