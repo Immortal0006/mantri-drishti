@@ -9,11 +9,12 @@ import { ProjectTable } from './components/ProjectTable';
 import { InvestigationDrawer } from './components/InvestigationDrawer';
 import { DossierModal } from './components/DossierModal';
 import { AnalyticsView } from './components/AnalyticsView';
+import { GISMapView } from './components/GISMapView';
 import { AboutModal } from './components/AboutModal';
 
 export const App: React.FC = () => {
   // Navigation & Modal States
-  const [activeTab, setActiveTab] = useState<'projects' | 'analytics'>('projects');
+  const [activeTab, setActiveTab] = useState<'projects' | 'analytics' | 'map'>('projects');
   const [selectedDrawerId, setSelectedDrawerId] = useState<string | null>(null);
   const [selectedDossierId, setSelectedDossierId] = useState<string | null>(null);
   const [showAboutModal, setShowAboutModal] = useState<boolean>(false);
@@ -227,12 +228,19 @@ export const App: React.FC = () => {
               isLoading={isLoading}
             />
           </>
-        ) : (
+        ) : activeTab === 'analytics' ? (
           /* Macro Geo & Sector Analytics View */
           <AnalyticsView
             overview={overview}
             onSelectState={handleSelectStateFromAnalytics}
             onSelectSector={handleSelectSectorFromAnalytics}
+          />
+        ) : (
+          /* GIS Risk Map View */
+          <GISMapView
+            projects={projects}
+            onOpenDrawer={(id) => setSelectedDrawerId(id)}
+            onOpenDossier={(id) => setSelectedDossierId(id)}
           />
         )}
       </main>

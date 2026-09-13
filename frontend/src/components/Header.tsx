@@ -1,8 +1,8 @@
-import { Eye, RefreshCw, BarChart3, ListFilter, Info } from 'lucide-react';
+import { Eye, RefreshCw, BarChart3, ListFilter, Info, Map } from 'lucide-react';
 
 interface HeaderProps {
-  activeTab: 'projects' | 'analytics';
-  onTabChange: (tab: 'projects' | 'analytics') => void;
+  activeTab: 'projects' | 'analytics' | 'map';
+  onTabChange: (tab: 'projects' | 'analytics' | 'map') => void;
   isBackendLive: boolean;
   onRefresh: () => void;
   isRefreshing: boolean;
@@ -54,6 +54,13 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <BarChart3 size={16} />
             <span>Macro Geo & Sector Analytics</span>
+          </button>
+          <button
+            className={`nav-tab-btn ${activeTab === 'map' ? 'active' : ''}`}
+            onClick={() => onTabChange('map')}
+          >
+            <Map size={16} />
+            <span>GIS Risk Map</span>
           </button>
         </nav>
 

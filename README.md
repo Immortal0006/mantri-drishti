@@ -37,6 +37,9 @@ Mantri Drishti detects anomalies, financial mismatches, timeline delays, and ove
 ### Investigation Drawer — Project Intelligence
 ![Investigation Drawer](docs/screenshots/dashboard_investigation.png)
 
+### GIS Risk Map — Geospatial Analysis
+![GIS Risk Map](docs/screenshots/dashboard_gis_map.png)
+
 ---
 
 ## Architecture
@@ -148,6 +151,15 @@ npm run dev
 The frontend will be available at **http://localhost:5173**
 
 > **Note:** The frontend has a built-in mock data fallback. If the backend is offline, it will automatically switch to demonstration mode with sample data.
+
+### 3. Docker (One Command)
+
+```bash
+docker-compose up --build
+```
+
+- **Backend:** http://localhost:8000
+- **Frontend:** http://localhost:3000
 
 ---
 
