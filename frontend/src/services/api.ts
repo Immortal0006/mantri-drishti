@@ -14,7 +14,7 @@ import {
   MOCK_RISK,
 } from './mockData';
 
-const BASE_URL = 'http://127.0.0.1:8000';
+const BASE_URL = 'https://mantri-drishti-backend.onrender.com';
 
 let isBackendLive = false;
 
